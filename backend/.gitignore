@@ -1,0 +1,54 @@
+# Node modules (installed dependencies)
+node_modules/
+
+# Environment variable files
+.env
+.env.*    # if you're using multiple env files like .env.development, .env.production
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime files
+pids/
+*.pid
+*.pid.lock
+
+# Debugging files
+*.sublime-workspace
+*.sublime-project
+
+# OS-specific files
+.DS_Store   # macOS
+Thumbs.db   # Windows
+
+# Coverage reports from testing
+coverage/
+
+# Build directories (if using TypeScript, Babel, etc.)
+dist/
+build/
+out/
+
+# Cache
+.cache/
+.tmp/
+tmp/
+
+# Editor folders
+.idea/
+.vscode/
+
+# Optional: Database or file uploads (if they are generated/stored locally)
+uploads/
+*.sqlite
+*.db
+
+# npm package archives
+*.tgz
+
+# Ignore local development scripts
+scripts/dev-local.sh
