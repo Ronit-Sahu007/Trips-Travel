@@ -66,7 +66,7 @@ const Booking = ({ price, title, reviewsArray, avgRating }) => {
     <div className="">
       <div className="flex justify-between items-center ">
         <h3 className="text-[25px] md:text-[40px]  font-bold mb-4 text-start text-BaseColor">
-          ${price} <span>/per person</span>
+          Rs. {price} <span>/per person</span>
         </h3>
         <div className="flex items-center gap-2">
           <i>

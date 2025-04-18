@@ -75,7 +75,7 @@ const AdminToursCards = ({ tour }) => {
           {/* <td className='tdFont'>{photo}</td> */}
           <td className="tableData text-start">{title}</td>
           <td className="tdFont">{city}</td>
-          <td className="tdFont">{featured === "true" ? "Yes" : "No"}</td>
+          <td className="tdFont">{featured ? "Yes" : "No"}</td>
           <td className="tdFont">{maxGroupSize}</td>
           <td className="tdFont">{reviews.length}</td>
           {/* <td>

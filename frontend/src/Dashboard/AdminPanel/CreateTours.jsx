@@ -27,7 +27,9 @@ const CreateTours = () => {
         setFormData({...formData, [e.target.name]:e.target.value})
         
       }
-
+      
+  console.log(formData);
+  
   const handleSubmit = async (e) => {
     e.preventDefault()
     console.log(formData)
@@ -184,8 +186,8 @@ const CreateTours = () => {
             <label htmlFor="" className='text-TextColor text-[15px] font-semibold leading-7 px-4'>
               Featured 
               <select name="featured" value={formData.featured} onChange={handleInput} className='text-TextColor text-[15px] leading-7 px-4 py-3 focus:outline-none' >
-                <option value="false">No</option>
-                <option value="true">Yes</option>
+                <option value={false}>No</option>
+                <option value={true}>Yes</option>
               </select>
             </label>
           </div>

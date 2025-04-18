@@ -248,8 +248,8 @@ const UpdateTours = ({ tour, id }) => {
                   onChange={handleInput}
                   className="text-TextColor text-[15px] leading-7 px-4 py-3 focus:outline-none"
                 >
-                  <option value="false">No</option>
-                  <option value="true">Yes</option>
+                  <option value={false}>No</option>
+                  <option value={true}>Yes</option>
                 </select>
               </label>
             </div>

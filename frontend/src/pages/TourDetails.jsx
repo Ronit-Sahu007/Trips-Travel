@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import avatar from "../assets/images/avatar.jpg";
 import { FaPeopleGroup, FaLocationDot } from "react-icons/fa6";
-import { FaStar, FaMapPin, FaCity, FaDollarSign } from "react-icons/fa";
+import { FaStar, FaMapPin, FaCity, FaRupeeSign } from "react-icons/fa";
 import CalculateAvg from "../utils/CalculateAvg";
 import Booking from "../components/Booking/Booking";
 import { toast } from "react-toastify";
@@ -80,7 +80,7 @@ const TourDetails = () => {
       <div>
         <div>
           <div className="flex flex-col md:flex-row gap-6">
-            <div className="flex-shrink-0">
+            <div className="flex-shrink-0 max-w-[70%]">
               <div className="max-w-3xl max-h-[400px]  rounded-md overflow-hidden">
                 <img src={photo} alt={title} />
               </div>
@@ -119,7 +119,7 @@ const TourDetails = () => {
                   </div>
                   <div className="flex items-center gap-2">
                     <i>
-                      <FaDollarSign />
+                      <FaRupeeSign />
                     </i>
                     <span>Rs. {price}/per head</span>
                   </div>
@@ -133,7 +133,7 @@ const TourDetails = () => {
                 <h3 className="text-[22px] text-center md:text-start md:text-[30px]">
                   Description
                 </h3>
-                <p className="mobpara md:para">{desc}</p>
+                <p className="mobpara text-wrap inline md:para">{desc}</p>
               </div>
 
               <div>
