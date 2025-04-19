@@ -1,15 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import BASE_URL from "../utils/config";
+import React, { useEffect, useState } from 'react'
 
-
-const useFetch = (BASE_URL) => {
+const useFetch = (url) => {
   const [apiData, setApiData] = useState();
     const [error, setError] = useState()
   
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(BASE_URL)
+                const response = await fetch(url)
                 
                 if(!response.ok){
                     setError('failed to fetch') 
@@ -25,7 +23,7 @@ const useFetch = (BASE_URL) => {
           }
 
           fetchData();
-    }, [BASE_URL])
+    }, [url])
   
     return {apiData, error}
 }

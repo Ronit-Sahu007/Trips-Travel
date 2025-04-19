@@ -12,8 +12,7 @@ import cookieParser from "cookie-parser";
 
 dotenv.config();
 const app = express();
-// const PORT = process.env.PORT || 3050;
-const PORT = process.env.PORT || "https://tripstravel.onrender.com";
+const PORT = process.env.PORT || 3050;
 
 
 mongoose
@@ -23,10 +22,8 @@ mongoose
 
 // Middleware for CORS and JSON parsing
 const allowedOrigins = [
-  // "https://trips-travel.vercel.app",
-  // "http://localhost:5173",
-  // "https://tripstravel.onrender.com",
-  "https://tripstravel.vercel.app"
+  "https://trips-travel.vercel.app",
+  "http://localhost:5173",
 ];
 app.use(
   cors({
