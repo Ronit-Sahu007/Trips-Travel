@@ -12,7 +12,9 @@ import cookieParser from "cookie-parser";
 
 dotenv.config();
 const app = express();
-const PORT = process.env.PORT || 3050;
+// const PORT = process.env.PORT || 3050;
+const PORT = process.env.PORT || "https://tripstravel.onrender.com";
+
 
 mongoose
   .connect(process.env.MONGO_URL)
