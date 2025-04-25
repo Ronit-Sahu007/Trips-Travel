@@ -10,6 +10,9 @@ import bookingRoutes from "./routes/bookingRoutes.js";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 
+// const express = (await import('express')).default;
+// const bodyParser = (await import('body-parser')).default;
+
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3050;
@@ -39,6 +42,7 @@ app.use(
 app.use(express.json());
 app.use(cookieParser());
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Routes
 app.use("/api/auth", authRoutes);
