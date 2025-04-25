@@ -1,6 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
-import bodyParser from "body-parser";
+// import bodyParser from "body-parser";
 import cors from "cors";
 import authRoutes from "./routes/authRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
@@ -10,8 +10,8 @@ import bookingRoutes from "./routes/bookingRoutes.js";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 
-// const express = (await import('express')).default;
-// const bodyParser = (await import('body-parser')).default;
+
+const bodyParser = (await import('body-parser')).default;
 
 dotenv.config();
 const app = express();
