@@ -39,13 +39,13 @@ const loginUser = async (req, res) => {
     const user = await User.findOne({ email });
     console.log("user", user);
     if (!user) {
-      return res.status(401).json({ message: "Invalid credentials" });
+      return res.status(401).json({ message: "Invalid Email Id!" });
     }
 
     // Compare the provided password with the stored hashed password
     const isPasswordValid = await bcryptjs.compare(password, user.password);
     if (!isPasswordValid) {
-      return res.status(401).json({ message: "Invalid credentials" });
+      return res.status(401).json({ message: "Invalid Password!" });
     }
     const { password: _, role, ...rest } = user._doc;
     // Generate a JWT token
