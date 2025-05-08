@@ -30,12 +30,34 @@ const Booking = ({ price, title, reviewsArray, avgRating }) => {
   }, [title, calculatedPrice]);
 
   const handleChange = (e) => {
-    setData((prev) => ({ ...prev, [e.target.id]: e.target.value }));
-  };
+    const { id, value } = e.target;
+
+  // Only allow digits in the phone input
+  if (id === "phone") {
+    const onlyNums = value.replace(/\D/g, ""); // Remove all non-digit characters
+    if (onlyNums.length <= 10){
+      setData((prev) => ({ ...prev, [id]: onlyNums }));
+    }
+  } else if (id === "maxGroupSize"){
+    const onlyNums = value.replace(/\D/g, "");
+    const num=parseInt(onlyNums,10);
+    if (!isNaN(num) && num >=1 && num<=100){
+      setData((prev) => ({ ...prev, [id]: num }));
+    }else if (onlyNums === ""){
+      setData((prev) => ({ ...prev, [id]: "" }));
+    }
+  }else {
+    setData((prev) => ({ ...prev, [id]: value }));
+  }};
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (!/^\d{10}$/.test(data.phone)) {
+      toast.error("Enter a valid 10-digit contact number");
+      return;
+    }
+    
     try {
       if (user) {
         const response = await fetch(`${BASE_URL}/booking`, {
@@ -97,10 +119,14 @@ const Booking = ({ price, title, reviewsArray, avgRating }) => {
           <div>
             <input
               className="booking_input"
-              type="text"
+              type="tel"
+              inputMode="numeric"
+              pattern="\d{10}"
               placeholder="Contact No."
               id="phone"
+              maxLength={10} minLength={10}
               required
+              value={data.phone}
               onChange={handleChange}
             />
           </div>
@@ -108,9 +134,13 @@ const Booking = ({ price, title, reviewsArray, avgRating }) => {
             <input
               className="booking_input"
               type="number"
+              inputMode="numeric"
+              pattern="\d*"
               placeholder="Number of Persons?"
               id="maxGroupSize"
+              min="1"
               required
+              value={data.maxGroupSize}
               onChange={handleChange}
             />
           </div>

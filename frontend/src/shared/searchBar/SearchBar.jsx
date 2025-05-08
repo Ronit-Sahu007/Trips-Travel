@@ -18,6 +18,16 @@ const SearchBar = () => {
     const maxPrice = maxPriceRef.current.value;
     const searchTerm = cityRef.current.value;
 
+    if (minPrice < 0 || maxPrice < 0) {
+      toast.error("Price cannot be negative");
+      return;
+    }
+  
+    if (parseFloat(minPrice) > parseFloat(maxPrice)) {
+      toast.error("Min Price cannot be greater than Max Price");
+      return;
+    }
+
     if (minPrice === "" || maxPrice === "" || searchTerm === "") {
       toast.error("Please fill all the fields");
     } else {
@@ -68,7 +78,7 @@ const SearchBar = () => {
             </span>
             <div>
               <h6>Min Price</h6>
-              <input type="number" placeholder="Mn. Price" ref={minPriceRef} />
+              <input type="number" placeholder="Mn. Price" ref={minPriceRef} min="0" />
             </div>
           </div>
           <div className="form-group flex gap-3 form-group-last">
@@ -79,7 +89,7 @@ const SearchBar = () => {
             </span>
             <div>
               <h6>Max Price</h6>
-              <input type="number" placeholder="Max Price" ref={maxPriceRef} />
+              <input type="number" placeholder="Max Price" ref={maxPriceRef} min="0" />
             </div>
           </div>
           <span
