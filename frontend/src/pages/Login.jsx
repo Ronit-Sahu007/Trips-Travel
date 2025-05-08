@@ -16,12 +16,29 @@ const Login = () => {
     password: "",
   });
 
+  const [emailError, setEmailError] = useState("");
+
   const handleInput = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  
+    if (name === "email") {
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(value)) {
+        setEmailError("Please enter a valid email address");
+      } else {
+        setEmailError("");
+      }
+    }
+  };  
 
   const logInHandler = async (e) => {
     e.preventDefault();
+
+    if (emailError) {
+      toast.error("Please correct your email format");
+      return;
+    }
 
     try {
       const response = await fetch(`${BASE_URL}/auth/login`, {
@@ -95,6 +112,9 @@ const Login = () => {
                 onChange={handleInput}
                 required
               />
+              {emailError && (
+                <p className="text-red-500 text-sm mt-1">{emailError}</p>
+              )}
             </div>
 
             <div>
