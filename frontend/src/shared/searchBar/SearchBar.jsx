@@ -78,7 +78,7 @@ const SearchBar = () => {
             </span>
             <div>
               <h6>Min Price</h6>
-              <input type="number" placeholder="Mn. Price" ref={minPriceRef} min="0" />
+              <input type="number" placeholder="Min Price" ref={minPriceRef} min="0" />
             </div>
           </div>
           <div className="form-group flex gap-3 form-group-last">
